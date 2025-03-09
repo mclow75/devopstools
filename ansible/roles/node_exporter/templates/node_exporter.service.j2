@@ -1,0 +1,16 @@
+# templates/node_exporter.service.j2
+[Unit]
+Description=Node Exporter v.{{ node_exporter_version }}
+Requires=node_exporter.socket
+Wants=network-online.target
+After=network-online.target
+
+
+[Service]
+User=node_exporter
+Environment=OPTIONS=
+EnvironmentFile=-/etc/sysconfig/node_exporter
+ExecStart=/usr/local/bin/node_exporter --web.systemd-socket $OPTIONS
+
+[Install]
+WantedBy=multi-user.target
