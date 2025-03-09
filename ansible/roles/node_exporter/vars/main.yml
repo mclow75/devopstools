@@ -1,0 +1,16 @@
+# vars/main.yml
+---
+rpm_packages:
+  - name: "{{ item.name }}"
+    state: present
+  loop:
+    - { name: 'wget' }
+    - { name: 'tar' }
+    - { name: 'unzip' }
+deb_packages:
+  - name: "{{ item.name }}"
+    state: present
+  loop:
+    - { name: 'wget' }
+    - { name: 'tar' }
+    - { name: 'unzip' }
