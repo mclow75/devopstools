@@ -7,6 +7,7 @@ rpm_packages:
     - { name: 'wget' }
     - { name: 'tar' }
     - { name: 'unzip' }
+
 deb_packages:
   - name: "{{ item.name }}"
     state: present

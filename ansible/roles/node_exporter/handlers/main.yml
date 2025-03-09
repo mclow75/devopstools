@@ -1,11 +1,12 @@
+# handlers/main.yml
 ---
-  - name: restart node exporter
-    service:
-      name: node_exporter
-      state: restarted
-    become: true
+- name: Restart node exporter
+  ansible.builtin.service:
+    name: node_exporter
+    state: restarted
+  become: true
 
-  - name: reload systemctl daemon
-    systemd:
-      daemon_reload: yes
-    become: true
+- name: Reload systemctl daemon
+  ansible.builtin.systemd:
+    daemon_reload: true
+  become: true

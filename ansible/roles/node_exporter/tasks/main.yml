@@ -1,56 +1,56 @@
 # tasks/main.yml
 ---
 - name: Install dependencies for RPM-based systems
-  package:
+  ansible.builtin.package:
     name: "{{ rpm_packages }}"
     state: present
   when: ansible_os_family == 'RedHat'
 
 - name: Install dependencies for DEB-based systems
-  package:
+  ansible.builtin.package:
     name: "{{ deb_packages }}"
     state: present
   when: ansible_os_family == 'Debian'
 
 - name: Download Node Exporter archive
-  get_url:
+  ansible.builtin.get_url:
     url: "https://github.com/prometheus/node_exporter/releases/download/v{{ node_exporter_version }}/node_exporter-{{ node_exporter_version }}.linux-amd64.tar.gz"
     dest: /tmp/node_exporter.tar.gz
-    mode: 0644
-    force: yes
+    mode: "0644"
+    force: true
   register: download_node_exporter_archive
 
 - name: Extract Node Exporter to a temporary directory
-  unarchive:
+  ansible.builtin.unarchive:
     src: /tmp/node_exporter.tar.gz
     dest: /tmp/
-    remote_src: yes
+    remote_src: true
   become: true
   when: download_node_exporter_archive.changed
 
 - name: Copy the Node Exporter binary to /usr/local/bin
-  copy:
+  ansible.builtin.copy:
     src: "/tmp/node_exporter-{{ node_exporter_version }}.linux-amd64/node_exporter"
     dest: /usr/local/bin/node_exporter
     owner: root
     group: root
-    mode: 0755
+    mode: "0755"
   become: true
-  notify: restart node exporter
+  notify: Restart node exporter
 
-- name: Create systemd service file for Node Exporter
-  template:
+- name: Create systemd service file for Node Exporter  
+  ansible.builtin.template:
     src: node_exporter.service.j2
     dest: /etc/systemd/system/node_exporter.service
     owner: root
     group: root
-    mode: 0644
+    mode: "0644"
   become: true
-  notify: reload systemctl daemon
+  notify: Reload systemctl daemon
 
-- name: Start and enable Node Exporter service
-  service:
+- name: Start and enable Node Exporter service  
+  ansible.builtin.service:
     name: node_exporter
-    enabled: yes
+    enabled: true
     state: started
   become: true
