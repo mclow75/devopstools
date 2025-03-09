@@ -1,0 +1,86 @@
+# Binaries for all OS and Architectures
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+
+# Build output
+/bin/
+/pkg/
+/build/
+/out/
+/obj/
+
+# Dependency management (if using Go Modules)
+/vendor/
+
+# IDE and Editor files
+.idea/
+*.iml
+.vscode/
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Coverage and profiling data
+*.cov
+*.prof
+
+# Test cache
+/testcache/
+
+# Logs and temporary files
+*.log
+/tmp/
+/temp/
+/logs/
+/cache/
+
+# OS Specific
+._*
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.env
+
+# Other
+.DS_Store
+.env
+.env.*
+/docs/_build
+/node_modules/
+/static/
+**/node_modules/
+
+# Custom build or script outputs (update as needed)
+/dist/
+/generated/
+
+#If you use dep tool
+/Gopkg.lock
+/Gopkg.toml
+
+# If you use make, or similar tools
+.make
+
+# If you use docker
+.dockerignore
+
+# CGO build cache
+.cgo-cache/
+
+# Ignore binaries and other outputs that might be in the root of repo
+[Ee]xample
+[Bb]inary
+
+# Ignore potential outputs from tools or scripts that aren't related to building
+[Dd]ump
+
+# Add other custom temporary output paths that should not be commited to VCS
+*.tmp
+
+# If you use Bazel
+bazel-*
+.bazelrc
