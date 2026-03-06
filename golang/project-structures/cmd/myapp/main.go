@@ -1,3 +1,5 @@
+// project-structures/cmd/myapp/main.go
+
 package main
 
 import "fmt"
