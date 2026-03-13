@@ -7,6 +7,5 @@ import (
 
 func main() {
 	p := message.NewPrinter(language.Russian)
-	p.Printf("You have %d unread messages.\n", 5)
-	// Output: Vous avez 5 messages non lus.
+	p.Printf("You have %d archiced messages.\n", 112345)
 }
