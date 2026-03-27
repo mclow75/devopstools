@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func twoSum(nums []int, target int) []int {
 	// Create HaspMap
 	hm := make(map[int]int, len(nums))
@@ -17,6 +15,4 @@ func twoSum(nums []int, target int) []int {
 }
 
 func main() {
-	var test1 = []int{2, 7, 11, 15}
-	fmt.Println(twoSum(test1, 9))
 }
