@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"strings"
 	"unicode"
 )
@@ -9,7 +8,6 @@ import (
 func myAtoi(s string) int {
 	str := strings.TrimSpace(s)
 	if str == "" {
-		fmt.Printf(str, "\nEmpty string")
 		return 0
 	}
 	var sign, result = 0, 0
@@ -39,9 +37,5 @@ func myAtoi(s string) int {
 }
 
 func main() {
-	fmt.Print(myAtoi("-042"))
-	fmt.Print(myAtoi("   +042"))
-	fmt.Print(myAtoi(" "))
-	fmt.Print(myAtoi("245"))
 
 }
