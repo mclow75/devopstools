@@ -29,3 +29,6 @@ go.work.sum
 .terraform.lock.hcl
 
 bin/*
+
+
+.DS_Store
